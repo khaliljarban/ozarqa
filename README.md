@@ -68,7 +68,7 @@ To use MyDataVisualization library, follow these steps:
 ```
 
 
-##License
+## License
 This project is licensed under the MIT License.
 
 Feel free to customize the content according to your library's specific features, installation instructions, and licensing details.
