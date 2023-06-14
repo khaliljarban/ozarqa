@@ -23,7 +23,8 @@
     
 
  
-    <svg   id="mySvg"></svg>
+    <svg class="mySvg"  id="mySvg1"></svg>
+    <svg class="mySvg"  id="mySvg2"></svg>
 
     <script src="ozarqa-bars.js"></script>
     <script src="ozarqa-pie.js"></script>
@@ -31,9 +32,9 @@
 <script>
       // Usage example
   const args = {
-    svgId :  'mySvg', 
-    chartType :  'bars', // 'bars' or 'pie'
-    barSpacing :  5, // 'bars' or 'pie'
+    svgSelector :  '.mySvg', //required, in case of class or tag selector the char while apply to first element only
+    chartType :  'bars', // required, 'bars' or 'pie'
+    barSpacing :  5, //optional, default 0
   };
   const data = [
     {
