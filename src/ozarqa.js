@@ -1,6 +1,7 @@
 
 import { OzarqaBarChart } from './ozarqa-bars.js';
 import { OzarqaPieChart } from './ozarqa-pie.js';
+import { OzarqaLineChart } from './ozarqa-lines.js';
 
 export class Ozarqa {
     
@@ -82,7 +83,10 @@ export class Ozarqa {
 
 
     run() {
-        if (this.args.chartType === 'bars') {
+        if (this.args.chartType === 'lines') {
+            const chart = new OzarqaLineChart(this.svg,this.args, this.data);
+            chart.draw();
+        }else if (this.args.chartType === 'bars') {
             const chart = new OzarqaBarChart(this.svg,this.args, this.data);
             chart.draw();
         } else if (this.args.chartType === 'pie') {

@@ -10,6 +10,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _ozarqa_bars_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _ozarqa_pie_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _ozarqa_lines_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+
 
 
 
@@ -94,7 +96,10 @@ class Ozarqa {
 
 
     run() {
-        if (this.args.chartType === 'bars') {
+        if (this.args.chartType === 'lines') {
+            const chart = new _ozarqa_lines_js__WEBPACK_IMPORTED_MODULE_2__.OzarqaLineChart(this.svg,this.args, this.data);
+            chart.draw();
+        }else if (this.args.chartType === 'bars') {
             const chart = new _ozarqa_bars_js__WEBPACK_IMPORTED_MODULE_0__.OzarqaBarChart(this.svg,this.args, this.data);
             chart.draw();
         } else if (this.args.chartType === 'pie') {
@@ -275,6 +280,72 @@ class OzarqaPieChart {
 }
 
 
+/***/ }),
+/* 3 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   OzarqaLineChart: () => (/* binding */ OzarqaLineChart)
+/* harmony export */ });
+
+class OzarqaLineChart {
+    constructor(svg,args, data) {
+       
+        this.svg =svg;
+        
+        this.data = data;
+        this.args = args;
+
+
+
+        this.dataValues = this.data.map(function (item) {
+            return item.value;
+        });
+
+
+
+ 
+        
+    }
+
+ 
+
+  
+    draw() {
+ 
+
+        const maxValue = Math.max(...this.dataValues);
+
+            // Clear the SVG
+            while (this.svg.firstChild) {
+                this.svg.firstChild.remove();
+            }
+        
+         
+            // Calculate the coordinates and dimensions
+            const width = this.svg.clientWidth;
+            const height = this.svg.clientHeight;
+            const xScale = width / (this.data.length - 1);
+            const yScale = height / maxValue;
+        
+            // Create the line path data
+            const pathData = this.data
+                .map((value, index) => `${index * xScale},${height - value.value * yScale}`)
+                .join(' ');
+        
+            // Draw the line
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
+            path.setAttribute('points', pathData);
+            path.setAttribute('fill', 'none');
+            path.setAttribute('stroke', 'blue');
+            path.setAttribute('stroke-width', '2');
+        
+            this.svg.appendChild(path);
+    } 
+}
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -344,7 +415,7 @@ __webpack_require__.r(__webpack_exports__);
    // Usage example
    const args = {
     svgSelector :  '.mySvg', //required, in case of class or tag selector the char while apply to first element only
-    chartType :  'bars', // required, 'bars' or 'pie'
+    chartType :  'lines', // required, 'bars' | 'pie' | 'lines'
     barSpacing :  5, //optional, default 0
   };
   const data = [
@@ -363,13 +434,13 @@ __webpack_require__.r(__webpack_exports__);
     {
         color : 'green',
         labelColor : 'white',
-        value : 63,
+        value : 30,
         label : "Tue"
     },
     {
         color : 'red',
         labelColor : 'white',
-        value : 90,
+        value : 45,
         label : "Wed"
     }
 ];  

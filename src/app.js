@@ -5,7 +5,7 @@
    // Usage example
    const args = {
     svgSelector :  '.mySvg', //required, in case of class or tag selector the char while apply to first element only
-    chartType :  'bars', // required, 'bars' or 'pie'
+    chartType :  'lines', // required, 'bars' | 'pie' | 'lines'
     barSpacing :  5, //optional, default 0
   };
   const data = [
@@ -24,13 +24,13 @@
     {
         color : 'green',
         labelColor : 'white',
-        value : 63,
+        value : 30,
         label : "Tue"
     },
     {
         color : 'red',
         labelColor : 'white',
-        value : 90,
+        value : 45,
         label : "Wed"
     }
 ];  
