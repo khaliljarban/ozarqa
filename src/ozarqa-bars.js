@@ -1,5 +1,5 @@
 
-export class OzarqaBarChart {
+class OzarqaBarChart {
     constructor(svg,args, data) {
        
         this.svg =svg;

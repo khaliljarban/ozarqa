@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <base href="/">
     <style>
         html{
             font-size: 2vw;
@@ -18,6 +19,8 @@
             margin:0; padding: 0;
         }
     </style>
+
+    
 </head>
 <body>
     
@@ -25,6 +28,49 @@
  
     <svg class="mySvg"  id="mySvg1"></svg>
       
+    <script src="ozarqa-pie.js" ></script>
+    <script src="ozarqa-bars.js" ></script>
+    <script src="ozarqa-lines.js" ></script>
+    <script src="ozarqa.js" ></script>
+
+
+<script>
+    
+
+   // Usage example
+   const args = {
+    svgSelector :  '.mySvg', //required, in case of class or tag selector the char while apply to first element only
+    chartType :  'lines', // required, 'bars' | 'pie' | 'lines'
+    barSpacing :  5, //optional, default 0
+  };
+  const data = [
+    {
+        color : '#000000',
+        labelColor : 'white',
+        value : 20,
+        label : "Sun"
+    },
+    {
+        color : 'blue',
+        labelColor : 'white',
+        value : 50,
+        label : "Mon"
+    },
+    {
+        color : 'green',
+        labelColor : 'white',
+        value : 30,
+        label : "Tue"
+    },
+    {
+        color : 'red',
+        labelColor : 'white',
+        value : 45,
+        label : "Wed"
+    }
+];  
+  const chart = new Ozarqa(args, data);
+</script>
  
 </body>
 </html>

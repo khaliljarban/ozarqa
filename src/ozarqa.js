@@ -1,9 +1,5 @@
 
-import { OzarqaBarChart } from './ozarqa-bars.js';
-import { OzarqaPieChart } from './ozarqa-pie.js';
-import { OzarqaLineChart } from './ozarqa-lines.js';
-
-export class Ozarqa {
+class Ozarqa {
     
     
 

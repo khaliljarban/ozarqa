@@ -1,5 +1,5 @@
 
-export class OzarqaLineChart {
+class OzarqaLineChart {
     constructor(svg,args, data) {
        
         this.svg =svg;
@@ -52,5 +52,12 @@ export class OzarqaLineChart {
             path.setAttribute('stroke-width', '2');
         
             this.svg.appendChild(path);
+
+
+ 
+
+ 
+
+
     } 
 }

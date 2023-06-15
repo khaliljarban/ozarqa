@@ -1,5 +1,5 @@
 
-export class OzarqaPieChart {
+class OzarqaPieChart {
     
     constructor(svg,args, data) {
         console.log('args',args);

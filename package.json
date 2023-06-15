@@ -1,17 +1,28 @@
 {
-  "name": "ozarqa.com",
+  "name": "ozarqa",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Ozarqa is is an open source JavaScript library that provides a simple and customizable way to create interactive data visualizations on the web",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khaliljarban/ozarqa.git"
+  },
+  "author": "Khalil Jarban",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khaliljarban/ozarqa/issues"
+  },
+  "homepage": "https://github.com/khaliljarban/ozarqa#readme",
   "devDependencies": {
-    "html-webpack-plugin": "^5.5.3",
-    "webpack": "^5.86.0",
-    "webpack-cli": "^5.1.4"
+    "grunt": "^1.6.1",
+    "grunt-contrib-clean": "^2.0.1",
+    "grunt-contrib-concat": "^2.1.0",
+    "grunt-contrib-connect": "^3.0.0",
+    "grunt-contrib-uglify": "^5.2.2",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-open": "^0.2.4"
   }
 }
