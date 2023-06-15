@@ -3,24 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <base href="/">
-    <style>
-        html{
-            font-size: 2vw;
-        }
-        * {
-            font-size: 2rem; line-height: 3rem;
-        }
-        svg{
-            width: 20rem; height: 20rem;
-        }
-        body{
-            margin:0; padding: 0;
-        }
-    </style>
+    <title>Documents</title>
 
-    
+
 </head>
 <body>
     
@@ -28,9 +13,7 @@
  
     <svg class="mySvg"  id="mySvg1"></svg>
       
-    <script src="ozarqa-pie.js" ></script>
-    <script src="ozarqa-bars.js" ></script>
-    <script src="ozarqa-lines.js" ></script>
+
     <script src="ozarqa.js" ></script>
 
 
@@ -40,38 +23,32 @@
    // Usage example
    const args = {
     svgSelector :  '.mySvg', //required, in case of class or tag selector the char while apply to first element only
-    chartType :  'bars', // required, 'bars' | 'pie' | 'lines'
+    chartType :  'lines', // required, 'bars' | 'pie' | 'lines'
     barSpacing :  5, //optional, default 0
   };
   const data = [
     {
         color : '#000000',
         labelColor : 'white',
-        value : 0,
+        value : 20,
         label : "Sun"
     },
     {
         color : 'blue',
         labelColor : 'white',
-        value : 5,
+        value : 50,
         label : "Mon"
     },
     {
         color : 'green',
         labelColor : 'white',
-        value : 3,
+        value : 30,
         label : "Tue"
     },
     {
         color : 'red',
         labelColor : 'white',
-        value : 10,
-        label : "Wed"
-    },
-    {
-        color : 'red',
-        labelColor : 'white',
-        value : 7,
+        value : 45,
         label : "Wed"
     }
 ];  

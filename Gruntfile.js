@@ -4,6 +4,10 @@ module.exports = function(grunt){
     grunt.initConfig({
         //pass in options to plugins, refrences to files etc
         concat : {
+            docs : {
+                src : [ 'src/docs.html'],
+                dest : 'dist/docs.html'
+            },
             js : {
                 src : [ 'src/*.js'],
                 dest : 'dist/ozarqa.js'
