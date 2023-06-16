@@ -64,20 +64,7 @@ class Ozarqa {
         }
 
 
-        //keep space for axis if enabled
-        args.canvas ={
-            width : !args.barHideAxis ? this.svg.clientWidth - 60 : this.svg.clientWidth,
-            height : !args.barHideAxis ? this.svg.clientHeight - 60: this.svg.clientHeight,
-        };
-
-        if(args.showGuide){
-            args.canvas.height-= 60;
-         //   args.canvas.width+= 60;
-        }
-
-
-
-        console.log(args.canvas);
+    
          
         this.args = args;
         this.data = data;
@@ -85,7 +72,10 @@ class Ozarqa {
         //resize
         this.resizeObserver = new ResizeObserver(this.run.bind(this));
         this.resizeObserver.observe(this.svg);
-        this.run();
+     
+            this.run();
+   
+    
         window.addEventListener('resize',this.run.bind(this));
  
     }
@@ -95,8 +85,24 @@ class Ozarqa {
 
     run() {
 
+        //keep space for axis if enabled
+        this.args.canvas ={
+            width : !args.barHideAxis ? this.svg.clientWidth - 60 : this.svg.clientWidth,
+            height : !args.barHideAxis ? this.svg.clientHeight  - 60: this.svg.clientHeight ,
+        };
+
+        if(this.args.showGuide){
+            this.args.canvas.height-= 60;
+            //   args.canvas.width+= 60;
+        }
+    
+     
+
+
         // Clear the SVG
         this.svg.innerHTML = '';
+
+        this.svg.classList.add("ozarqa");
 
 
         if (this.args.chartType === 'lines') {
