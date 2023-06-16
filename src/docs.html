@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documents</title>
 
+   
 
+    <link rel="stylesheet" href="style.css">
+
+    
 </head>
 <body>
     
@@ -17,43 +21,66 @@
     <script src="ozarqa.js" ></script>
 
 
-<script>
+
+    <script>
     
 
-   // Usage example
-   const args = {
-    svgSelector :  '.mySvg', //required, in case of class or tag selector the char while apply to first element only
-    chartType :  'lines', // required, 'bars' | 'pie' | 'lines'
-    barSpacing :  5, //optional, default 0
-  };
-  const data = [
-    {
-        color : '#000000',
-        labelColor : 'white',
-        value : 20,
-        label : "Sun"
-    },
-    {
-        color : 'blue',
-        labelColor : 'white',
-        value : 50,
-        label : "Mon"
-    },
-    {
-        color : 'green',
-        labelColor : 'white',
-        value : 30,
-        label : "Tue"
-    },
-    {
-        color : 'red',
-        labelColor : 'white',
-        value : 45,
-        label : "Wed"
-    }
-];  
-  const chart = new Ozarqa(args, data);
-</script>
+        // Usage example
+        const args = {
+         svgSelector :  '.mySvg', //required, in case of class or tag selector the char while apply to first element only
+         chartType :  'bars', // required, 'bars' | 'pie' | 'lines'
+     
+         //bars settings
+         barSpacing :  5, //optional, default 0
+         barHideLabel : true, //optional, default false
+         barHideAxis : false, //optional, default false
+       };
+       const data = [
+         {
+             color : '#000000',
+             labelColor : 'white',
+             value : 1,
+             label : "Sun"
+         },
+         {
+             color : 'blue',
+             labelColor : 'white',
+             value : 5,
+             label : "Mon"
+         },
+         {
+             color : 'green',
+             labelColor : 'white',
+             value : 3,
+             label : "Tue"
+         },
+         {
+             color : 'red',
+             labelColor : 'white',
+             value : 10,
+             label : "Wed"
+         },
+         {
+             color : 'brown',
+             labelColor : 'white',
+             value : 7,
+             label : "Wed"
+         },
+         {
+             color : 'yellow',
+             labelColor : 'white',
+             value : 4,
+             label : "Wed"
+         },
+         {
+             color : 'black',
+             labelColor : 'white',
+             value : 2,
+             label : "Wed"
+         }
+     ];  
+       const chart = new Ozarqa(args, data);
+     </script>
  
 </body>
 </html>

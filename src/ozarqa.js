@@ -7,7 +7,11 @@ class Ozarqa {
 
         const defaults = {
 
+            //general 
+            showGuide : false,//beta
+
             //bars
+            barShowHorizintalLines: false,
             barHideAxis: false,
             barHideLabel: false,
             barSpacing: 0
@@ -65,6 +69,14 @@ class Ozarqa {
             width : !args.barHideAxis ? this.svg.clientWidth - 60 : this.svg.clientWidth,
             height : !args.barHideAxis ? this.svg.clientHeight - 60: this.svg.clientHeight,
         };
+
+        if(args.showGuide){
+            args.canvas.height-= 60;
+         //   args.canvas.width+= 60;
+        }
+
+
+
         console.log(args.canvas);
          
         this.args = args;

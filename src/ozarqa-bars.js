@@ -32,6 +32,63 @@ class OzarqaBarChart {
         let yScale = height / maxValue;
 
 
+
+        //horizintal lines
+        if(this.args.barShowHorizintalLines){
+            // Add labels to y-axis
+            for (let i = 1; i <= maxValue; i += Math.round(maxValue / 5)) {
+              const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+              line.setAttribute('transform', 'translate(30 30)');
+              line.setAttribute('x1', 0);
+              line.setAttribute('y1',height - i * yScale);
+              line.setAttribute('x2', width);
+              line.setAttribute('y2', height - i * yScale);
+              line.setAttribute('stroke', 'black');
+              line.setAttribute('stroke-width', '1');
+              this.svg.appendChild(line);
+            }
+        }
+
+
+        if(this.args.showGuide){
+          //guide group
+      
+ 
+          const guide = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+          guide.classList.add("ozarqaGuide");
+          guide.setAttribute('transform', 'translate(0 60)');
+          guide.setAttribute('width', width);
+          guide.setAttribute('height', height);
+          this.svg.appendChild(guide);
+
+
+          // Draw the guides 
+          for (let i = 0; i < this.data.length; i++) {
+              // Create a group for slices and labels
+              const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+              guide.appendChild(group);
+              const guideItem = this.data[i];
+ 
+              // Draw the guide items
+              const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+              bar.setAttribute('x', 0);
+              bar.setAttribute('y', height );
+              bar.setAttribute('width', 30);
+              bar.setAttribute('height', 20);
+              bar.setAttribute('fill', this.data[i].color);
+              group.appendChild(bar);
+
+              //guide labels
+              const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+              label.setAttribute('x', 0 );
+              label.setAttribute('y', height + 30 );
+              label.setAttribute('text-anchor', 'middle');
+              label.textContent = guideItem.label;
+              group.appendChild(label);
+          }
+
+        }
+
         //visualization group
         const vGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
         vGroup.classList.add("ozarqaVisualization");
@@ -79,6 +136,10 @@ class OzarqaBarChart {
             }
         }
  
+
+      
+
+
         if(!this.args.barHideAxis){
           this.svg.classList.add("ozarqaAxisEnabled");
 
@@ -112,6 +173,8 @@ class OzarqaBarChart {
         
             // Add labels to x-axis
             for (let i = 0; i < this.data.length; i++) {
+
+
               const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
               label.setAttribute('x', i * (barWidth + this.args.barSpacing) + barWidth / 2);
               label.setAttribute('y', height + 15);
