@@ -104,9 +104,11 @@ class OzarqaBarChart {
 
             // Create a group for slices and labels
             const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            group.classList.add("ozarqaItemGroup");
             vGroup.appendChild(group);
 
 
+            
             const value = this.data[i].value;
             const barHeight = value * yScale;
          
@@ -125,6 +127,20 @@ class OzarqaBarChart {
 
             group.appendChild(bar);
       
+            // hoverText
+            if(typeof this.data[i].hoverText!='undefined'){
+              const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+              label.classList.add("ozarqaHoverText");
+              label.setAttribute('x', x + barWidth / 2);
+              label.setAttribute('y', y + barHeight / 2);
+              if(typeof this.data[i].hoverTextColor!='undefined'){
+                label.setAttribute('fill', this.data[i].hoverTextColor);
+              }
+              label.setAttribute('text-anchor', 'middle');
+              label.textContent = this.data[i].hoverText;
+              group.appendChild(label);
+            }
+
             // Add label
             if(!this.args.barHideLabel){
               const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');

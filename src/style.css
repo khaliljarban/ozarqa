@@ -3,3 +3,10 @@
 .ozarqa {
     width: 100%; height: 500px;
 }
+
+.ozarqaHoverText{
+    opacity: 0;
+}
+.ozarqaItemGroup:hover .ozarqaHoverText{
+    opacity: 1;
+}
