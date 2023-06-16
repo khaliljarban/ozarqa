@@ -27,10 +27,7 @@ class OzarqaLineChart {
 
         const maxValue = Math.max(...this.dataValues);
 
-            // Clear the SVG
-            while (this.svg.firstChild) {
-                this.svg.firstChild.remove();
-            }
+            
         
          
             // Calculate the coordinates and dimensions

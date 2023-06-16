@@ -19,8 +19,7 @@ class OzarqaPieChart {
         const totalValue = this.dataValues.reduce((acc, val) => acc + val, 0);
         let startAngle = 0;
     
-        // Clear the SVG
-        this.svg.innerHTML = '';
+ 
     
         // Calculate the center coordinates of the pie chart
         const centerX = this.svg.clientWidth / 2;

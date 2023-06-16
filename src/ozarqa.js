@@ -6,6 +6,10 @@ class Ozarqa {
     constructor(args, data) {
 
         const defaults = {
+
+            //bars
+            barHideAxis: false,
+            barHideLabel: false,
             barSpacing: 0
         };
 
@@ -34,6 +38,7 @@ class Ozarqa {
         }
 
 
+     
          
 
         //deal with css selector
@@ -53,24 +58,22 @@ class Ozarqa {
         if(typeof this.svg[0]!=='undefined'){
             this.svg= this.svg[0];
         }
+
+
+        //keep space for axis if enabled
+        args.canvas ={
+            width : !args.barHideAxis ? this.svg.clientWidth - 60 : this.svg.clientWidth,
+            height : !args.barHideAxis ? this.svg.clientHeight - 60: this.svg.clientHeight,
+        };
+        console.log(args.canvas);
          
-        
+        this.args = args;
+        this.data = data;
 
-         
-
-         this.args = args;
-         this.data = data;
-
-                 //resize
+        //resize
         this.resizeObserver = new ResizeObserver(this.run.bind(this));
         this.resizeObserver.observe(this.svg);
-   
-         this.run();
-
-         
- 
-
-
+        this.run();
         window.addEventListener('resize',this.run.bind(this));
  
     }
@@ -79,6 +82,11 @@ class Ozarqa {
 
 
     run() {
+
+        // Clear the SVG
+        this.svg.innerHTML = '';
+
+
         if (this.args.chartType === 'lines') {
             const chart = new OzarqaLineChart(this.svg,this.args, this.data);
             chart.draw();
