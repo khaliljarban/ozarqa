@@ -105,17 +105,22 @@ class Ozarqa {
         this.svg.classList.add("ozarqa");
 
 
-        if (this.args.chartType === 'lines') {
-            const chart = new OzarqaLineChart(this.svg,this.args, this.data);
-            chart.draw();
-        }else if (this.args.chartType === 'bars') {
-            const chart = new OzarqaBarChart(this.svg,this.args, this.data);
-            chart.draw();
-        } else if (this.args.chartType === 'pie') {
-
-            const chart = new OzarqaPieChart(this.svg,this.args, this.data);
-            chart.draw();
+        switch(this.args.chartType){
+            case 'line':
+                const line = new OzarqaLineChart(this.svg,this.args, this.data);
+                line.draw();
+            break;
+            case 'bars':
+                const bars = new OzarqaBarChart(this.svg,this.args, this.data);
+                bars.draw();
+            break;
+            case 'pie':
+                const pie = new OzarqaPieChart(this.svg,this.args, this.data);
+                pie.draw();
+            break;
         }
+
+        
       }
 
 

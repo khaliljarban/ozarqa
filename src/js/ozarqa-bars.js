@@ -156,7 +156,7 @@ class OzarqaBarChart {
       
 
 
-        if(!this.args.barHideAxis){
+        if(!this.args.hideAxis){
           this.svg.classList.add("ozarqaAxisEnabled");
 
 

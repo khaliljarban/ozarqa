@@ -9,11 +9,11 @@ module.exports = function(grunt){
                 dest : 'dist/docs.html'
             },
             js : {
-                src : [ 'src/*.js'],
+                src : [ 'src/js/*.js'],
                 dest : 'dist/ozarqa.js'
             },
             css : {
-                src : [ 'src/*.css'],
+                src : [ 'src/css/*.css'],
                 dest : 'dist/style.css'
             }
         },
