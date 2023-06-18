@@ -104,6 +104,8 @@ class Ozarqa {
 
         this.svg.classList.add("ozarqa");
 
+        this.svg.classList.add("ozarqa_"+this.args.chartType);
+
 
         switch(this.args.chartType){
             case 'line':
@@ -115,6 +117,17 @@ class Ozarqa {
                 bars.draw();
             break;
             case 'pie':
+
+      
+
+            this.args.canvas ={
+                width : !args.barHideAxis ? this.svg.clientWidth : this.svg.clientWidth,
+                height : !args.barHideAxis ? this.svg.clientWidth : this.svg.clientWidth ,
+            };
+            this.svg.setAttribute('height', this.args.canvas.width);
+ 
+
+
                 const pie = new OzarqaPieChart(this.svg,this.args, this.data);
                 pie.draw();
             break;

@@ -95,7 +95,7 @@ class OzarqaBarChart {
         vGroup.setAttribute('transform', 'translate(30 30)');
         vGroup.setAttribute('width', width);
         vGroup.setAttribute('height', height);
-        this.svg.classList.add("ozarqaBars");
+     
         this.svg.appendChild(vGroup);
 
    

@@ -1,7 +1,8 @@
 
 
 .ozarqa {
-    width: 100%; height: 500px;
+    width: 100%; /* height: 500px;*/
+    aspect-ratio: 2 / 1; 
 }
 
 .ozarqaHoverText{

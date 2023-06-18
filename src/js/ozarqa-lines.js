@@ -34,7 +34,7 @@ class OzarqaLineChart {
         const yScale = height / maxValue;
 
                //horizintal lines
-        if(this.args.barShowHorizintalLines){
+        if(this.args.showHorizintalLines){
             // Add labels to y-axis
             for (let i = 1; i <= maxValue; i += Math.round(maxValue / 5)) {
               const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
@@ -57,7 +57,7 @@ class OzarqaLineChart {
         vGroup.setAttribute('transform', 'translate(30 30)');
         vGroup.setAttribute('width', width);
         vGroup.setAttribute('height', height);
-        this.svg.classList.add("ozarqaLines");
+    
         this.svg.appendChild(vGroup);
 
 
@@ -75,6 +75,7 @@ class OzarqaLineChart {
         path.setAttribute('stroke-width', '2');
         vGroup.appendChild(path);
 
+ 
 
 
  

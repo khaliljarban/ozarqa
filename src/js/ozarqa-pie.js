@@ -2,7 +2,8 @@
 class OzarqaPieChart {
     
     constructor(svg,args, data) {
-        console.log('args',args);
+        
+        this.args =args;
         this.svg =svg;
         this.data = data;
 
@@ -19,20 +20,31 @@ class OzarqaPieChart {
         const totalValue = this.dataValues.reduce((acc, val) => acc + val, 0);
         let startAngle = 0;
     
+
+                // Calculate the center coordinates of the pie chart
+
+                let width = this.args.canvas.width;
+                let height = this.args.canvas.height;
+
+
+                const centerX = width / 2;
+                const centerY = height / 2;
+                const radius = Math.min(centerX, centerY);
+
+        
+
+        //visualization group
+           
+ 
+
  
     
-        // Calculate the center coordinates of the pie chart
-        const centerX = this.svg.clientWidth / 2;
-        const centerY = this.svg.clientHeight / 2;
-        const radius = Math.min(centerX, centerY);
+ 
     
         // Draw each slice of the pie chart
         for (let i = 0; i < this.data.length; i++) {
 
-                 // Create a group for slices and labels
-                 const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-                 this.svg.appendChild(group);
-
+           
                  
             const sliceAngle = (2 * Math.PI * this.data[i].value) / totalValue;
     
@@ -48,7 +60,7 @@ class OzarqaPieChart {
             path.setAttribute('d', d);
             path.setAttribute('fill', this.data[i].color);
     
-            group.appendChild(path);
+            this.svg.appendChild(path);
 
 
           // Add label
@@ -62,7 +74,7 @@ class OzarqaPieChart {
             label.setAttribute('text-anchor', 'middle');
             label.textContent = this.data[i].label.toString();
 
-            group.appendChild(label);
+            this.svg.appendChild(label);
     
             startAngle += sliceAngle;
         }
