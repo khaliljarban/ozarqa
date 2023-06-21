@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <base href="/">
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * { 
+            font-family: 'Roboto', sans-serif;
+        }
+        .container{
+            width: 1024px; margin: 0 auto 50px;
+        }
+    </style>
+     
+     <script src="js/ozarqa-pie.js" ></script>
+     <script src="js/ozarqa-bars.js" ></script>
+     <script src="js/ozarqa-lines.js" ></script>
+     <script src="js/ozarqa.js" ></script>
+ 
+</head>
+<body>
+    
+
+   
+    <div class="container">
+        <h2>Lines</h2>
+        <div  class="mySvg"  id="mySvg1"></div>
+        <script>
+    
+
+            // Usage example
+            const args = {
+                 //general
+                 selector :  '#mySvg1', //required, in case of class or tag selector the char while apply to first element only
+                 chartType :  'lines', // required, 'bars' | 'pie' | 'lines'
+                 showGuide : true,//beta
+                 hideAxis : false, //optional, default false
+                 showHorizintalLines : true, //optional, default false
+
+                 //bars settings
+                 barSpacing :  5, //optional, default 0
+                 barHideLabel : false, //optional, default false
+             };
+             const data = [];
+             data.push({
+                color : 'red',
+                guideTextColor : 'white',
+                    label : "Sun",
+                    data :
+             [
+                 {
+                     value : 1
+                 },
+                 {
+                     value : 5
+                 },
+                 {
+                     value : 3
+                 },
+                 {
+                     value : 6,
+                 },
+                 {
+                     value : 7
+                 },
+                 {
+                     value : 4.5
+                 },
+                 {
+                     value : 2
+                 },
+                 {
+                     value : 5.8
+                 }
+             ]
+             
+                });  
+             data.push({
+                color : 'blue',
+                guideTextColor : 'white',
+                    label : "Mon",
+                    data :
+             [
+                 {
+                     value : 2
+                 },
+                 {
+                     value : 3
+                 },
+                 {
+                     value : 10
+                 },
+                 {
+                     value : 9,
+                 },
+                 {
+                     value : 2
+                 },
+                 {
+                     value : 2.5
+                 },
+                 {
+                     value : 2
+                 },
+                 {
+                     value : 4
+                 }
+             ]
+             
+                });  
+             data.push({
+                color : 'pink',
+                guideTextColor : 'black',
+                    label : "Tue",
+                    data :
+             [
+                 {
+                     value : 8
+                 },
+                 {
+                     value : 13
+                 },
+                 {
+                     value : 20
+                 },
+                 {
+                     value : 10,
+                 },
+                 {
+                     value : 11
+                 },
+                 {
+                     value : 6.5
+                 },
+                 {
+                     value : 5
+                 },
+                 {
+                     value :1
+                 }
+             ]
+             
+                });  
+              new Ozarqa(args, data);
+         </script>
+    </div>
+ 
+ 
+</body>
+</html>

@@ -21,8 +21,8 @@ class Ozarqa {
         args = { ...defaults,  ...args };
 
         //verify args paramets
-        if(typeof args.svgSelector=='undefined'){
-            console.warn('Missing svgId parameter.');
+        if(typeof args.selector=='undefined'){
+            console.warn('Missing selector parameter.');
             return;
         }
         if(typeof args.chartType=='undefined'){
@@ -46,29 +46,54 @@ class Ozarqa {
          
 
         //deal with css selector
-        const selector = args.svgSelector.slice(0,1);
-        const selectorName = args.svgSelector.substring(1);
+        const selector = args.selector.slice(0,1);
+        const selectorName = args.selector.substring(1);
+
+         
         switch(selector){
             case '#':
+                this.container = document.getElementById(selectorName);
                 this.svg = document.getElementById(selectorName);
             break;
             case '.':
-                this.svg = document.getElementsByClassName(selectorName);
+                this.container = document.getElementsByClassName(selectorName);
             break;
             default:
-                this.svg = document.querySelectorAll(args.svgId);
+                this.container = document.querySelectorAll(args.svgId);
             break;
         }
-        if(typeof this.svg[0]!=='undefined'){
-            this.svg= this.svg[0];
+        if(typeof this.container[0]!=='undefined'){
+            this.container= this.container[0];
         }
 
-
-    
+      
+ 
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
          
+        svg.setAttribute('id', 'ozarqa-'+selectorName);
+ 
+        this.container.innerHTML='';
+        this.container.appendChild(svg);
+        this.container.classList.add("ozarqa-container");
+        this.container.classList.add("ozarqa-container-"+args.chartType);
+
+        this.container.setAttribute('data-id', 'ozarqa-'+selectorName);
+
+        this.container.classList.add("ozarqa-selector-"+selectorName);
+     
+         
+        args.helpers={};
+        args.helpers['container'] = this.container;
+
+
+        this.svg = document.getElementById('ozarqa-'+selectorName);
+
+ 
+               
         this.args = args;
         this.data = data;
 
+  
         //resize
         this.resizeObserver = new ResizeObserver(this.run.bind(this));
         this.resizeObserver.observe(this.svg);
@@ -78,6 +103,41 @@ class Ozarqa {
     
         window.addEventListener('resize',this.run.bind(this));
  
+
+
+        if(this.args.showGuide){
+            //guide group
+        
+   //this.container
+  
+          const box = document.createElement("div");
+          box.setAttribute('class', 'ozarqa-guide');
+          this.container.appendChild(box);
+
+
+
+  
+ 
+            // Draw the guides 
+            for (let i = 0; i < this.data.length; i++) {
+
+                const guideItem = this.data[i];
+                
+
+                const boxItem = document.createElement("div");
+                boxItem.setAttribute('class', 'ozarqa-guide-item');
+                boxItem.style.backgroundColor =guideItem.color;
+                boxItem.style.color =guideItem.guideTextColor;
+                boxItem.innerHTML=guideItem.label;
+                box.appendChild(boxItem);
+
+ 
+            }
+  
+          }
+  
+
+
     }
 
    
@@ -90,11 +150,7 @@ class Ozarqa {
             width : !args.barHideAxis ? this.svg.clientWidth - 60 : this.svg.clientWidth,
             height : !args.barHideAxis ? this.svg.clientHeight  - 60: this.svg.clientHeight ,
         };
-
-        if(this.args.showGuide){
-            this.args.canvas.height-= 60;
-            //   args.canvas.width+= 60;
-        }
+ 
     
      
 
@@ -108,8 +164,8 @@ class Ozarqa {
 
 
         switch(this.args.chartType){
-            case 'line':
-                const line = new OzarqaLineChart(this.svg,this.args, this.data);
+            case 'lines':
+                const line = new OzarqaLinesChart(this.svg,this.args, this.data);
                 line.draw();
             break;
             case 'bars':

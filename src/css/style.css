@@ -4,10 +4,25 @@
     width: 100%; /* height: 500px;*/
     aspect-ratio: 2 / 1; 
 }
+.ozarqa.ozarqa_pie {
+    aspect-ratio: 1 / 1; 
+}
 
 .ozarqaHoverText{
     opacity: 0;
 }
 .ozarqaItemGroup:hover .ozarqaHoverText{
     opacity: 1;
+}
+
+
+
+
+.ozarqa-guide{
+    justify-content: center;
+    display: flex; gap: 10px; margin-top: 20px;
+}
+.ozarqa-guide-item{
+    font-size: 12px;
+    line-height: 25px; padding: 0 10px;
 }

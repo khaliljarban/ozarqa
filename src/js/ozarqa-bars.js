@@ -4,6 +4,9 @@ class OzarqaBarChart {
        
         this.svg =svg;
         
+       this.container = args.helpers.container;
+  
+
         this.data = data;
         this.args = args;
 
@@ -50,45 +53,7 @@ class OzarqaBarChart {
         }
 
 
-        if(this.args.showGuide){
-          //guide group
-      
- 
-          const guide = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-          guide.classList.add("ozarqaGuide");
-          guide.setAttribute('transform', 'translate(0 60)');
-          guide.setAttribute('width', width);
-          guide.setAttribute('height', height);
-          this.svg.appendChild(guide);
-
-
-          // Draw the guides 
-          for (let i = 0; i < this.data.length; i++) {
-              // Create a group for slices and labels
-              const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-              guide.appendChild(group);
-              const guideItem = this.data[i];
- 
-              // Draw the guide items
-              const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-              bar.setAttribute('x', 0);
-              bar.setAttribute('y', height );
-              bar.setAttribute('width', 30);
-              bar.setAttribute('height', 20);
-              bar.setAttribute('fill', this.data[i].color);
-              group.appendChild(bar);
-
-              //guide labels
-              const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-              label.setAttribute('x', 0 );
-              label.setAttribute('y', height + 30 );
-              label.setAttribute('text-anchor', 'middle');
-              label.textContent = guideItem.label;
-              group.appendChild(label);
-          }
-
-        }
-
+        
         //visualization group
         const vGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
         vGroup.classList.add("ozarqaVisualization");

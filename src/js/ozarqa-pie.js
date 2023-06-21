@@ -2,6 +2,11 @@
 class OzarqaPieChart {
     
     constructor(svg,args, data) {
+
+
+        this.container = args.helpers.container;
+
+        
         
         this.args =args;
         this.svg =svg;

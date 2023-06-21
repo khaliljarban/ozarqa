@@ -33,16 +33,18 @@
    
     <div class="container">
         <h2>Bars</h2>
-        <svg class="mySvg"  id="mySvg1"></svg>
+
+        <div  class="mySvg"  id="mySvg1"></div>
+        
         <script>
     
 
             // Usage example
              const args = {
                  //general
-                 svgSelector :  '#mySvg1', //required, in case of class or tag selector the char while apply to first element only
+                 selector :  '#mySvg1', //required, in case of class or tag selector the char while apply to first element only
                  chartType :  'bars', // required, 'bars' | 'pie' | 'lines'
-                 showGuide : false,//beta
+                 showGuide : true,//beta
                  hideAxis : false, //optional, default false
                  showHorizintalLines : true, //optional, default false
 
@@ -53,6 +55,7 @@
              const data = [
                  {
                      color : '#000000',
+                     guideTextColor : 'white',
                      labelColor : 'white',
                      value : 1,
                      hoverText : "Sun 1",
@@ -61,6 +64,7 @@
                  },
                  {
                      color : 'blue',
+                     guideTextColor : 'white',
                      labelColor : 'white',
                      hoverText : "Sun 5",
                      value : 5,
@@ -68,6 +72,7 @@
                  },
                  {
                      color : 'green',
+                     guideTextColor : 'white',
                      labelColor : 'white',
                      hoverText : "Sun 3",
                      value : 3,
@@ -75,6 +80,7 @@
                  },
                  {
                      color : 'red',
+                     guideTextColor : 'white',
                      labelColor : 'white',
                      hoverText : "Sun 6",
                      value : 6,
@@ -82,6 +88,7 @@
                  },
                  {
                      color : 'brown',
+                     guideTextColor : 'white',
                      labelColor : 'white',
                      hoverText : "Sun 7",
                      value : 7,
@@ -96,6 +103,7 @@
                  },
                  {
                      color : 'black',
+                     guideTextColor : 'white',
                      labelColor : 'white',
                      hoverText : "Sun 2",
                      hoverTextColor : "#fff",
@@ -104,6 +112,7 @@
                  },
                  {
                      color : '#5cb85c',
+                     guideTextColor : 'white',
                      labelColor : 'white',
                      hoverText : "Sun 5.8",
                      value : 5.8,
