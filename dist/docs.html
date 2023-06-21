@@ -9,22 +9,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+  
     <link rel="stylesheet" href="style.css">
 
-    
     <style>
         * { 
             font-family: 'Roboto', sans-serif;
         }
         .container{
-            width: 1024px; margin: auto;
+            width: 1024px; margin: 0 auto 50px;
         }
     </style>
 </head>
 <body>
     
     <div class="container">
-        <svg class="mySvg"  id="mySvg1"></svg>
+       
+        <div  class="mySvg"  id="mySvg1"></div>
     </div>
  
      
@@ -33,81 +34,87 @@
     <script src="ozarqa.js" ></script>
     <script>
     
+  // Usage example
+  const args = {
+                 //general
+                 selector :  '#mySvg1', //required, in case of class or tag selector the char while apply to first element only
+                 chartType :  'bars', // required, 'bars' | 'pie' | 'lines'
+                 showGuide : true,//beta
+                 hideAxis : false, //optional, default false
+                 showHorizintalLines : true, //optional, default false
 
-        // Usage example
-         const args = {
-             //general
-             selector :  '#mySvg1', //required, in case of class or tag selector the char while apply to first element only
-             chartType :  'bars', // required, 'bars' | 'pie' | 'lines'
-             showGuide : false,//beta
-             
-             //bars settings
-             barSpacing :  5, //optional, default 0
-             barHideLabel : false, //optional, default false
-             barHideAxis : false, //optional, default false
-             barShowHorizintalLines : true, //optional, default false
-         };
-         const data = [
-             {
-                 color : '#000000',
-                 labelColor : 'white',
-                 value : 1,
-                 hoverText : "Sun 1",
-                 hoverTextColor : "#fff",
-                 label : "Sun"
-             },
-             {
-                 color : 'blue',
-                 labelColor : 'white',
-                 hoverText : "Sun 5",
-                 value : 5,
-                 label : "Mon"
-             },
-             {
-                 color : 'green',
-                 labelColor : 'white',
-                 hoverText : "Sun 3",
-                 value : 3,
-                 label : "Tue"
-             },
-             {
-                 color : 'red',
-                 labelColor : 'white',
-                 hoverText : "Sun 6",
-                 value : 6,
-                 label : "Wed"
-             },
-             {
-                 color : 'brown',
-                 labelColor : 'white',
-                 hoverText : "Sun 7",
-                 value : 7,
-                 label : "Wed"
-             },
-             {
-                 color : 'yellow',
-                 labelColor : 'white',
-                 hoverText : "Sun 4.5",
-                 value : 4.5,
-                 label : "Wed"
-             },
-             {
-                 color : 'black',
-                 labelColor : 'white',
-                 hoverText : "Sun 2",
-                 hoverTextColor : "#fff",
-                 value : 2,
-                 label : "Wed"
-             },
-             {
-                 color : '#5cb85c',
-                 labelColor : 'white',
-                 hoverText : "Sun 5.8",
-                 value : 5.8,
-                 label : "Wed"
-             }
-         ];  
-         const chart = new Ozarqa(args, data);
+                 //bars settings
+                 barSpacing :  5, //optional, default 0
+                 barHideLabel : false, //optional, default false
+             };
+             const data = [
+                 {
+                     color : '#000000',
+                     guideTextColor : 'white',
+                     labelColor : 'white',
+                     value : 1,
+                     hoverText : "Sun 1",
+                     hoverTextColor : "#fff",
+                     label : "Sun"
+                 },
+                 {
+                     color : 'blue',
+                     guideTextColor : 'white',
+                     labelColor : 'white',
+                     hoverText : "Sun 5",
+                     value : 5,
+                     label : "Mon"
+                 },
+                 {
+                     color : 'green',
+                     guideTextColor : 'white',
+                     labelColor : 'white',
+                     hoverText : "Sun 3",
+                     value : 3,
+                     label : "Tue"
+                 },
+                 {
+                     color : 'red',
+                     guideTextColor : 'white',
+                     labelColor : 'white',
+                     hoverText : "Sun 6",
+                     value : 6,
+                     label : "Wed"
+                 },
+                 {
+                     color : 'brown',
+                     guideTextColor : 'white',
+                     labelColor : 'white',
+                     hoverText : "Sun 7",
+                     value : 7,
+                     label : "Wed"
+                 },
+                 {
+                     color : 'yellow',
+                     labelColor : 'white',
+                     hoverText : "Sun 4.5",
+                     value : 4.5,
+                     label : "Wed"
+                 },
+                 {
+                     color : 'black',
+                     guideTextColor : 'white',
+                     labelColor : 'white',
+                     hoverText : "Sun 2",
+                     hoverTextColor : "#fff",
+                     value : 2,
+                     label : "Wed"
+                 },
+                 {
+                     color : '#5cb85c',
+                     guideTextColor : 'white',
+                     labelColor : 'white',
+                     hoverText : "Sun 5.8",
+                     value : 5.8,
+                     label : "Wed"
+                 }
+             ];  
+              new Ozarqa(args, data);
      </script>
       
  
