@@ -1,5 +1,5 @@
 
-class OzarqaBarChart {
+class OzarqaBarsChart {
     constructor(svg,args, data) {
        
         this.svg =svg;
@@ -46,7 +46,7 @@ class OzarqaBarChart {
               line.setAttribute('y1',height - i * yScale);
               line.setAttribute('x2', width);
               line.setAttribute('y2', height - i * yScale);
-              line.setAttribute('stroke', 'black');
+              line.setAttribute('stroke', this.args.horizintalLinesColors);
               line.setAttribute('stroke-width', '1');
               this.svg.appendChild(line);
             }
@@ -138,7 +138,7 @@ class OzarqaBarChart {
             xAxis.setAttribute('y1', height);
             xAxis.setAttribute('x2', width);
             xAxis.setAttribute('y2', height);
-            xAxis.setAttribute('stroke', 'black');
+            xAxis.setAttribute('stroke', '#787878');
             xAxis.setAttribute('stroke-width', '1');
             group.appendChild(xAxis);
         
@@ -148,7 +148,7 @@ class OzarqaBarChart {
             yAxis.setAttribute('y1', 0);
             yAxis.setAttribute('x2', 0);
             yAxis.setAttribute('y2', height);
-            yAxis.setAttribute('stroke', 'black');
+            yAxis.setAttribute('stroke', '#787878');
             yAxis.setAttribute('stroke-width', '1');
             group.appendChild(yAxis);
         
@@ -160,7 +160,8 @@ class OzarqaBarChart {
               label.setAttribute('x', i * (barWidth + this.args.barSpacing) + barWidth / 2);
               label.setAttribute('y', height + 15);
               label.setAttribute('text-anchor', 'middle');
-              label.textContent = i.toString();
+              label.textContent = this.data[i].label;
+              label.setAttribute('fill', '#787878');
               group.appendChild(label);
             }
         
@@ -172,6 +173,7 @@ class OzarqaBarChart {
               label.setAttribute('text-anchor', 'end');
               label.setAttribute('alignment-baseline', 'middle');
               label.textContent = i.toString();
+              label.setAttribute('fill', '#787878');
               group.appendChild(label);
             }
         }

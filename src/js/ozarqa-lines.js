@@ -97,7 +97,7 @@ class OzarqaLinesChart {
                 line.setAttribute('y1',height - i * yScale);
                 line.setAttribute('x2', width);
                 line.setAttribute('y2', height - i * yScale);
-                line.setAttribute('stroke', 'black');
+                line.setAttribute('stroke', this.args.horizintalLinesColors);
                 line.setAttribute('stroke-width', i===0 ? '0' : '1');
                 this.svg.appendChild(line);
             }
@@ -126,7 +126,7 @@ class OzarqaLinesChart {
             xAxis.setAttribute('y1', height);
             xAxis.setAttribute('x2', width);
             xAxis.setAttribute('y2', height);
-            xAxis.setAttribute('stroke', 'black');
+            xAxis.setAttribute('stroke', '#787878');
             xAxis.setAttribute('stroke-width', '1');
             group.appendChild(xAxis);
 
@@ -136,7 +136,7 @@ class OzarqaLinesChart {
             yAxis.setAttribute('y1', 0);
             yAxis.setAttribute('x2', 0);
             yAxis.setAttribute('y2', height);
-            yAxis.setAttribute('stroke', 'black');
+            yAxis.setAttribute('stroke', '#787878');
             yAxis.setAttribute('stroke-width', '1');
             group.appendChild(yAxis);
 
@@ -147,6 +147,7 @@ class OzarqaLinesChart {
                 label.setAttribute('x', i * xScale);
                 label.setAttribute('y', height + 15);
                 label.setAttribute('text-anchor', 'middle');
+                label.setAttribute('fill', '#787878');
                 label.textContent = i.toString();
                 group.appendChild(label);
             }
@@ -158,6 +159,7 @@ class OzarqaLinesChart {
                 label.setAttribute('y', height - i * yScale);
                 label.setAttribute('text-anchor', 'end');
                 label.setAttribute('alignment-baseline', 'middle');
+                label.setAttribute('fill', '#787878');
                 label.textContent = i.toString();
                 group.appendChild(label);
             }
