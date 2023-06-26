@@ -39,7 +39,7 @@ class OzarqaBarsChart {
         //horizintal lines
         if(this.args.barShowHorizintalLines){
             // Add labels to y-axis
-            for (let i = 1; i <= maxValue; i += Math.round(maxValue / 5)) {
+            for (let i = 1; i <= maxValue; i += Math.round(maxValue / this.args.axisScaleUnit)) {
               const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
               line.setAttribute('transform', 'translate(30 30)');
               line.setAttribute('x1', 0);
@@ -153,7 +153,8 @@ class OzarqaBarsChart {
             group.appendChild(yAxis);
         
             // Add labels to x-axis
-            for (let i = 0; i < this.data.length; i++) {
+
+            for (let i = 0; i < this.data.length; i += Math.round(this.data.length / this.args.axisScaleUnit)) {
 
 
               const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
@@ -166,7 +167,7 @@ class OzarqaBarsChart {
             }
         
             // Add labels to y-axis
-            for (let i = 0; i <= maxValue; i += Math.round(maxValue / 5)) {
+            for (let i = 0; i <= maxValue; i += Math.round(maxValue / this.args.axisScaleUnit)) {
               const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
               label.setAttribute('x', -5);
               label.setAttribute('y', height - i * yScale);

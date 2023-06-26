@@ -22,7 +22,7 @@ If you know what's wrong or missing and willing to help :heart: :clap: :+1:, fol
 - Install  ([Grunt](https://gruntjs.com/)).
 - Install Grunt plugins:   grunt-contrib-concat, grunt-contrib-uglify, grunt-contrib-clean, grunt-contrib-connect, grunt-contrib-watch
 - Make needed changes in "src/js/*.js", "src/css/*.css". 
-- Update docs.html & example_*.html files
+- Update docs.html & test_*.html files
 - Test the project
 - Run "grunt dist"
 - Test dist folder manually

@@ -15,6 +15,7 @@ class Ozarqa {
             horizintalLinesColors : '#ccc',
             barHideAxis: false,
             barHideLabel: false,
+            axisScaleUnit: 5,
             barSpacing: 0
         };
 
@@ -172,6 +173,10 @@ class Ozarqa {
             case 'bars':
                 const bars = new OzarqaBarsChart(this.svg,this.args, this.data);
                 bars.draw();
+            break;
+            case 'bubbles':
+                const bubbles = new OzarqaBubblesChart(this.svg,this.args, this.data);
+                bubbles.draw();
             break;
             case 'pie':
 

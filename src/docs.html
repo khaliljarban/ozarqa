@@ -33,88 +33,101 @@
 
     <script src="ozarqa.js" ></script>
     <script>
-    
-  // Usage example
-  const args = {
+         // Usage example
+         const args = {
                  //general
+
                  selector :  '#mySvg1', //required, in case of class or tag selector the char while apply to first element only
-                 chartType :  'bars', // required, 'bars' | 'pie' | 'lines'
+                 chartType :  'bubbles', // required, 'bars' | 'pie' | 'lines'
                  showGuide : true,//beta
                  hideAxis : false, //optional, default false
+                 axisScaleUnit : 5,
                  showHorizintalLines : true, //optional, default false
                  horizintalLinesColors : '#e8e8e8', //optional, default false
-                 
-                 //bars settings
-                 barSpacing :  5, //optional, default 0
-                 barHideLabel : false, //optional, default false
+
+ 
              };
-             const data = [
+             const data = [];
+             data.push({
+                color : '#FF9F40',
+                guideTextColor : 'white',
+                    label : "Sun",
+                    data :
+             [
                  {
-                     color : '#000000',
-                     guideTextColor : 'white',
-                     labelColor : 'white',
-                     value : 1,
-                     hoverText : "Sun 1",
-                     hoverTextColor : "#fff",
-                     label : "Sun"
+                    value : 2,
+                     x : 8,
+                     y : 5,
                  },
+                
                  {
-                     color : 'blue',
-                     guideTextColor : 'white',
-                     labelColor : 'white',
-                     hoverText : "Sun 5",
-                     value : 5,
-                     label : "Mon"
+                    value : 5,
+                     x : 6,
+                     y : 10,
                  },
+                
                  {
-                     color : 'green',
-                     guideTextColor : 'white',
-                     labelColor : 'white',
-                     hoverText : "Sun 3",
-                     value : 3,
-                     label : "Tue"
-                 },
-                 {
-                     color : 'red',
-                     guideTextColor : 'white',
-                     labelColor : 'white',
-                     hoverText : "Sun 6",
-                     value : 6,
-                     label : "Wed"
-                 },
-                 {
-                     color : 'brown',
-                     guideTextColor : 'white',
-                     labelColor : 'white',
-                     hoverText : "Sun 7",
-                     value : 7,
-                     label : "Wed"
-                 },
-                 {
-                     color : 'yellow',
-                     labelColor : 'white',
-                     hoverText : "Sun 4.5",
-                     value : 4.5,
-                     label : "Wed"
-                 },
-                 {
-                     color : 'black',
-                     guideTextColor : 'white',
-                     labelColor : 'white',
-                     hoverText : "Sun 2",
-                     hoverTextColor : "#fff",
-                     value : 2,
-                     label : "Wed"
-                 },
-                 {
-                     color : '#5cb85c',
-                     guideTextColor : 'white',
-                     labelColor : 'white',
-                     hoverText : "Sun 5.8",
-                     value : 5.8,
-                     label : "Wed"
+                    value : 2,
+                     x : 9,
+                     y : 6,
                  }
-             ];  
+                
+             ]
+             
+                });  
+             data.push({
+                color : '#4AC0C0',
+                guideTextColor : 'white',
+                    label : "Mon",
+                    data :
+             [
+                {
+                    value : 5,
+                     x : 2,
+                     y : 2,
+                 },
+                
+                 {
+                    value : 2,
+                     x : 3,
+                     y : 6,
+                 },
+                
+                 {
+                    value : 5,
+                     x : 6,
+                     y : 2,
+                 }
+             ]
+             
+                });  
+             data.push({
+                color : '#418ad4',
+                guideTextColor : 'white',
+                    label : "Wed",
+                    data :
+             [
+                {
+                    value : 5,
+                     x : 3,
+                     y : 3,
+                 },
+                
+                 {
+                    value : 3,
+                     x : 6,
+                     y : 3,
+                 },
+                
+                 {
+                    value : 5,
+                     x : 7,
+                     y : 7,
+                 }
+             ]
+             
+                });  
+          
               new Ozarqa(args, data);
      </script>
       

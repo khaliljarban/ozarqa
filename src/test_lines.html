@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documents</title>
-
+    <title>Document</title>
+    <base href="/">
+   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-  
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <style>
         * { 
@@ -20,32 +20,37 @@
             width: 1024px; margin: 0 auto 50px;
         }
     </style>
+     
+     <script src="js/ozarqa-pie.js" ></script>
+     <script src="js/ozarqa-bars.js" ></script>
+     <script src="js/ozarqa-lines.js?v=2" ></script>
+     <script src="js/ozarqa.js" ></script>
+ 
 </head>
 <body>
     
+
+   
     <div class="container">
-       
+        <h2>Lines</h2>
         <div  class="mySvg"  id="mySvg1"></div>
-    </div>
- 
-     
-      
+        <script>
+    
 
-    <script src="ozarqa.js" ></script>
-    <script>
-         // Usage example
-         const args = {
+            // Usage example
+            const args = {
                  //general
-
                  selector :  '#mySvg1', //required, in case of class or tag selector the char while apply to first element only
-                 chartType :  'bubbles', // required, 'bars' | 'pie' | 'lines'
+                 chartType :  'lines', // required, 'bars' | 'pie' | 'lines'
                  showGuide : true,//beta
                  hideAxis : false, //optional, default false
                  axisScaleUnit : 5,
                  showHorizintalLines : true, //optional, default false
                  horizintalLinesColors : '#e8e8e8', //optional, default false
 
- 
+                 //bars settings
+                 barSpacing :  5, //optional, default 0
+                 barHideLabel : false, //optional, default false
              };
              const data = [];
              data.push({
@@ -55,82 +60,92 @@
                     data :
              [
                  {
-                    value : 2,
-                     x : 8,
-                     y : 5,
+                    x : 0,
+                     y : 0,
                  },
-                
                  {
-                    value : 5,
-                     x : 6,
-                     y : 10,
+                    x : 4,
+                     y : 1,
                  },
-                
                  {
-                    value : 2,
-                     x : 9,
-                     y : 6,
+                    x : 6,
+                     y : 4,
+                 },
+                 {
+                    x : 8,
+                     y : 3,
+                 },
+                 {
+                    x : 10,
+                     y : 8,
                  }
-                
              ]
              
                 });  
+
+           
              data.push({
                 color : '#4AC0C0',
                 guideTextColor : 'white',
                     label : "Mon",
                     data :
-             [
-                {
-                    value : 5,
-                     x : 2,
-                     y : 2,
-                 },
-                
+                    [
                  {
-                    value : 2,
-                     x : 3,
-                     y : 6,
+                    x : 0,
+                     y : 0,
                  },
-                
                  {
-                    value : 5,
-                     x : 6,
-                     y : 2,
+                    x : 4,
+                     y : 3,
+                 },
+                 {
+                    x : 6,
+                     y : 8,
+                 },
+                 {
+                    x : 8,
+                     y : 7,
+                 },
+                 {
+                    x : 10,
+                     y : 9,
                  }
              ]
              
                 });  
              data.push({
-                color : '#418ad4',
-                guideTextColor : 'white',
-                    label : "Wed",
+                color : '#35A2EB',
+                guideTextColor : 'black',
+                    label : "Tue",
                     data :
-             [
-                {
-                    value : 5,
-                     x : 3,
+                    [
+                 {
+                    x : 0,
+                     y : 0,
+                 },
+                 {
+                    x : 2,
+                     y : 1,
+                 },
+                 {
+                    x : 4,
+                     y : 4,
+                 },
+                 {
+                    x : 8,
                      y : 3,
                  },
-                
                  {
-                    value : 3,
-                     x : 6,
-                     y : 3,
-                 },
-                
-                 {
-                    value : 5,
-                     x : 7,
-                     y : 7,
+                    x : 11,
+                     y : 9,
                  }
              ]
              
                 });  
-          
               new Ozarqa(args, data);
-     </script>
-      
+         </script>
+    </div>
+ 
  
 </body>
 </html>

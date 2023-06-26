@@ -21,9 +21,8 @@
         }
     </style>
      
-     <script src="js/ozarqa-pie.js" ></script>
-     <script src="js/ozarqa-bars.js" ></script>
-     <script src="js/ozarqa-lines.js" ></script>
+
+     <script src="js/ozarqa-bubbles.js" ></script>
      <script src="js/ozarqa.js" ></script>
  
 </head>
@@ -32,24 +31,26 @@
 
    
     <div class="container">
-        <h2>Lines</h2>
+        <h2>Bubbles</h2>
+
         <div  class="mySvg"  id="mySvg1"></div>
+        
         <script>
     
 
             // Usage example
-            const args = {
+             const args = {
                  //general
+
                  selector :  '#mySvg1', //required, in case of class or tag selector the char while apply to first element only
-                 chartType :  'lines', // required, 'bars' | 'pie' | 'lines'
+                 chartType :  'bubbles', // required, 'bars' | 'pie' | 'lines'
                  showGuide : true,//beta
                  hideAxis : false, //optional, default false
+                 axisScaleUnit : 5,
                  showHorizintalLines : true, //optional, default false
                  horizintalLinesColors : '#e8e8e8', //optional, default false
 
-                 //bars settings
-                 barSpacing :  5, //optional, default 0
-                 barHideLabel : false, //optional, default false
+ 
              };
              const data = [];
              data.push({
@@ -59,29 +60,23 @@
                     data :
              [
                  {
-                     value : 1
+                    value : 2,
+                     x : 8,
+                     y : 5,
                  },
+                
                  {
-                     value : 5
+                    value : 5,
+                     x : 6,
+                     y : 10,
                  },
+                
                  {
-                     value : 3
-                 },
-                 {
-                     value : 6,
-                 },
-                 {
-                     value : 7
-                 },
-                 {
-                     value : 4.5
-                 },
-                 {
-                     value : 2
-                 },
-                 {
-                     value : 5.8
+                    value : 2,
+                     x : 9,
+                     y : 6,
                  }
+                
              ]
              
                 });  
@@ -91,66 +86,53 @@
                     label : "Mon",
                     data :
              [
-                 {
-                     value : 2
+                {
+                    value : 5,
+                     x : 2,
+                     y : 2,
                  },
+                
                  {
-                     value : 3
+                    value : 2,
+                     x : 3,
+                     y : 6,
                  },
+                
                  {
-                     value : 10
-                 },
-                 {
-                     value : 9,
-                 },
-                 {
-                     value : 2
-                 },
-                 {
-                     value : 2.5
-                 },
-                 {
-                     value : 2
-                 },
-                 {
-                     value : 4
+                    value : 5,
+                     x : 6,
+                     y : 2,
                  }
              ]
              
                 });  
              data.push({
-                color : '#35A2EB',
-                guideTextColor : 'black',
-                    label : "Tue",
+                color : '#418ad4',
+                guideTextColor : 'white',
+                    label : "Wed",
                     data :
              [
-                 {
-                     value : 8
+                {
+                    value : 5,
+                     x : 3,
+                     y : 3,
                  },
+                
                  {
-                     value : 13
+                    value : 3,
+                     x : 6,
+                     y : 3,
                  },
+                
                  {
-                     value : 20
-                 },
-                 {
-                     value : 10,
-                 },
-                 {
-                     value : 11
-                 },
-                 {
-                     value : 6.5
-                 },
-                 {
-                     value : 5
-                 },
-                 {
-                     value :1
+                    value : 5,
+                     x : 7,
+                     y : 7,
                  }
              ]
              
                 });  
+          
               new Ozarqa(args, data);
          </script>
     </div>
