@@ -2,7 +2,8 @@
 
 
 Ozarqa is a JavaScript library that provides a simple and customizable way to create interactive data visualizations on the web. It supports bar, lines and pie charts, allowing developers to present data in an engaging and meaningful way.
-The diffrence between Ozarqa and others library, Ozarqa render tha chart as SVG. this make it more accessbility, and SEO frendly.
+
+The diffrence between Ozarqa and others library, Ozarqa render tha chart as SVG. this make it more accessbile, SEO friendly and exportable.
 
 ## Features
 
