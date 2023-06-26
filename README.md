@@ -11,6 +11,7 @@ The diffrence between Ozarqa and others library, Ozarqa render tha chart as SVG.
 - Supports customization options such as colors, labels, and spacing.
 - Responsive design, adapts to different screen sizes.
 - Built with SVG for flexibility and compatibility.
+- JS bubbles chart
 - JS bar chart
 - JS line chart
 - JS pie chart
